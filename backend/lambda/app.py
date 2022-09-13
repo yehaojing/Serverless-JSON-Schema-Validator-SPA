@@ -1,35 +1,44 @@
-import json
-
 from aws_lambda_powertools.event_handler import APIGatewayRestResolver, CORSConfig
 from aws_lambda_powertools.utilities.validation import validate, SchemaValidationError
+
+import jsonschema
 
 cors_config = CORSConfig(allow_origin="*", max_age=300)
 app = APIGatewayRestResolver(cors=cors_config)
 
 @app.post("/validate")
-def print_name():
+def validate_payload():
 
     body = app.current_event.json_body
     schema = body.get("schema")
     payload = body.get("payload")
 
-    try:
-        validation_result = validate(payload, schema)
-        is_valid = True
-    except SchemaValidationError as e:
-        validation_result = e.validation_message
-        is_valid = False
+    validator = jsonschema.Draft7Validator(schema)
+    errors = sorted(validator.iter_errors(payload), key= lambda e: e.json_path)
 
-    if validation_result is None:
-        validation_result = "Validation passed!"
-
-    return {
-        "statusCode": 200,
-        "body": {
-            "isValid": is_valid,
-            "validationResult": validation_result
-        },
-    }
+    if errors == []:
+        return {
+            "statusCode": 200,
+            "body": {
+                "isValid": True
+            }
+        }
+    else:
+        return {
+            "statusCode": 200,
+            "body": {
+                "isValid": False
+                "errors": [{
+                    "error": str(e),
+                    "validatorValue": str(e.validator_value),
+                    "message": str(e.message),
+                    "jsonPath": str(e.json_path),
+                    "path": str(e.path.popleft()) if e.path else None
+                }
+                for e in errors
+                ]
+            } 
+        }
 
 def lambda_handler(event, context):
     return app.resolve(event, context)

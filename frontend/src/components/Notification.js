@@ -5,15 +5,24 @@ const Notification = ({ message, className }) => {
   
     return (
       <div className={className}>
-        {className === 'valid' ? 
-            <p>
-                &#9989; {message}
-            </p>
-            :
-            <p>
-                
-                &#10060; {message}
-            </p>
+        {
+          className === 'valid' 
+          ? 
+            message.map(m => {
+              return (
+                <div>
+                  <p> &#9989; {m.message}</p>
+                </div>
+              )
+          }) 
+          : 
+            message.map(m => {
+              return (
+                <div>
+                  <p> &#10060; <b>{m.jsonPath}</b> {m.message}</p>
+                </div>
+              )
+          })
         }
       </div>
     )

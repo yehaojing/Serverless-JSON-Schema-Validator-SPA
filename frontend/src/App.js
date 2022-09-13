@@ -15,10 +15,10 @@ const App = () => {
       .then(resp => {
         console.log(resp)
         if (resp.body.isValid === true) {
-          updateMessage(resp.body.validationResult)
+          updateMessage([{message: "Payload is valid!"}])
           updateValidationNotificationClass('valid')
         } else {
-          updateMessage(resp.body.validationResult)
+          updateMessage(resp.body.errors)
           updateValidationNotificationClass('invalid')
         }
       })

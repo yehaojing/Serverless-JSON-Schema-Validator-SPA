@@ -59,7 +59,6 @@ textarea {
   margin-top: 25px;
   margin-left: 400px;
   margin-right: 400px;
-  display: flex;
   justify-content: center;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -69,6 +68,7 @@ textarea {
 
 .side-by-side {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   column-gap: 30px;
   /* flex-flow: row wrap;
