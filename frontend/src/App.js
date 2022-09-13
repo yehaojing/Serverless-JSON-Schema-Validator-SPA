@@ -11,6 +11,9 @@ const App = () => {
 
   const validatePayloadHandler = (payload, schema) => {
 
+    updateMessage([])
+    updateValidationNotificationClass('loading')
+
     const resp = validateService.validatePayload(JSON.parse(payload), JSON.parse(schema))
       .then(resp => {
         console.log(resp)

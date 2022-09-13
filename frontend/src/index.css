@@ -12,18 +12,17 @@ code {
     monospace;
 }
 
-textarea {
+.code {
   /* flex: 400 400 400%; */
-  font-size: .8rem;
+  font-size: 1rem;
   letter-spacing: 1px;
-  /* padding: 10px; */
   width: 800px;
   height: 600px;
   line-height: 1.5;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid black;
   box-shadow: 5px 5px 5px #000;
-  resize: None;
+  background-color: #202020;
 }
 
 .App {
@@ -36,33 +35,42 @@ textarea {
   color: green;
   background: white;
   font-size: 20px;
-  border-style: solid;
-  border-radius: 5px;
   padding: 10px;
   margin-top: 25px;
   margin-left: 400px;
   margin-right: 400px;
   display: flex;
   justify-content: center;
-  border-radius: 5px;
-  border: 1px solid #ccc;
   box-shadow: 5px 5px 5px #000;
+  background-color: #202020;
 }
 
 .invalid {
   color: red;
-  background: white;
   font-size: 20px;
-  border-style: solid;
-  border-radius: 5px;
   padding: 10px;
   margin-top: 25px;
   margin-left: 400px;
   margin-right: 400px;
   justify-content: center;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  display: flex;
   box-shadow: 5px 5px 5px #000;
+  background-color: #202020;
+}
+
+.loading {
+  background: white;
+  font-size: 20px;
+  padding: 10px;
+  margin-top: 25px;
+  margin-left: 400px;
+  margin-right: 400px;
+  justify-content: center;
+  border-radius: 5px;
+  display: flex;
+  box-shadow: 5px 5px 5px #000;
+  background-color: #202020;
 }
 
 
@@ -70,10 +78,8 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  text-align: left;
   column-gap: 30px;
-  /* flex-flow: row wrap;
-
-  /* flex-direction: row; */
 }
 
 
