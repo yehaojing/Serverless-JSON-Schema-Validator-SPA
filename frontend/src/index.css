@@ -39,7 +39,6 @@ code {
   margin-top: 25px;
   margin-left: 400px;
   margin-right: 400px;
-  display: flex;
   justify-content: center;
   box-shadow: 5px 5px 5px #000;
   background-color: #202020;
@@ -54,7 +53,6 @@ code {
   margin-right: 400px;
   justify-content: center;
   border-radius: 5px;
-  display: flex;
   box-shadow: 5px 5px 5px #000;
   background-color: #202020;
 }
@@ -68,7 +66,6 @@ code {
   margin-right: 400px;
   justify-content: center;
   border-radius: 5px;
-  display: flex;
   box-shadow: 5px 5px 5px #000;
   background-color: #202020;
 }

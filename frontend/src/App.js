@@ -16,7 +16,6 @@ const App = () => {
 
     const resp = validateService.validatePayload(JSON.parse(payload), JSON.parse(schema))
       .then(resp => {
-        console.log(resp)
         if (resp.body.isValid === true) {
           updateMessage([{message: "Payload is valid!"}])
           updateValidationNotificationClass('valid')

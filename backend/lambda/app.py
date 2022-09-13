@@ -27,7 +27,7 @@ def validate_payload():
         return {
             "statusCode": 200,
             "body": {
-                "isValid": False
+                "isValid": False,
                 "errors": [{
                     "error": str(e),
                     "validatorValue": str(e.validator_value),

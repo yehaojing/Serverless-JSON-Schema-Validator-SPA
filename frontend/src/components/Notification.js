@@ -12,16 +12,12 @@ const Notification = ({ message, className }) => {
         {
           'valid': message.map(m => {
             return (
-              <div>
-                <p> &#9989; {m.message}</p>
-              </div>
+                <p key={m.message}> &#9989; <b>{m.jsonPath}</b> {m.message}</p>
             )
           }),
           'invalid': message.map(m => {
             return (
-              <div>
-                <p> &#10060; {m.message}</p>
-              </div>
+                <p key={m.message}> &#10060; <b>{m.jsonPath}</b> {m.message}</p>
             )
           }),
           'loading': 

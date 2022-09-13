@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = '/validate'
+const baseUrl = process.env.REACT_APP_BASE_URL
 
 const validatePayload = (payload, schema) => {
     const body = {
@@ -8,8 +8,7 @@ const validatePayload = (payload, schema) => {
         schema: schema
     }
 
-    console.log(body)
-    const request = axios.post(baseUrl, body )
+    const request = axios.post(`${baseUrl}/validate`, body )
     return request.then(response => response.data)
 }
 
