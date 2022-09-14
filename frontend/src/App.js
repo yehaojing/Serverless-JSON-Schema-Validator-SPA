@@ -14,7 +14,7 @@ const App = () => {
     updateMessage([])
     updateValidationNotificationClass('loading')
 
-    const resp = validateService.validatePayload(JSON.parse(payload), JSON.parse(schema))
+    validateService.validatePayload(JSON.parse(payload), JSON.parse(schema))
       .then(resp => {
         if (resp.body.isValid === true) {
           updateMessage([{message: "Payload is valid!"}])
@@ -28,12 +28,11 @@ const App = () => {
 
   return (
     <div className="App">
-        <div>
-          <ValidateForm validatePayloadHandler={validatePayloadHandler}/>
-        </div>
-        <div>
-          <Notification message={message} className={validationNotificationClass}/>
-        </div>
+        <h1>
+            JSON Schema Validator
+        </h1>
+        <ValidateForm validatePayloadHandler={validatePayloadHandler}/>
+        <Notification message={message} className={validationNotificationClass}/>
     </div>
   );
 }

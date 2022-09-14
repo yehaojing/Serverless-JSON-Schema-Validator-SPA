@@ -32,6 +32,7 @@ code {
 }
 
 .valid {
+  flex-direction: column;
   color: green;
   background: white;
   font-size: 20px;
@@ -45,6 +46,8 @@ code {
 }
 
 .invalid {
+  flex-direction: column;
+  flex-wrap: wrap;
   color: red;
   font-size: 20px;
   padding: 10px;
@@ -58,6 +61,7 @@ code {
 }
 
 .loading {
+  flex-direction: column;
   background: white;
   font-size: 20px;
   padding: 10px;

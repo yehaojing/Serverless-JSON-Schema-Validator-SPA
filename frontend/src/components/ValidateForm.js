@@ -38,14 +38,11 @@ const ValidateForm = ({ validatePayloadHandler }) => {
 
     const validateResult = (event) => {
         event.preventDefault()
-        const result = validatePayloadHandler(payload, schema)
+        validatePayloadHandler(payload, schema)
     }
 
     return (
         <div>
-            <h1>
-                Powertools Schema Validator
-            </h1>
             <form onSubmit={validateResult}>
                 <div className='side-by-side'>
                     <div>
