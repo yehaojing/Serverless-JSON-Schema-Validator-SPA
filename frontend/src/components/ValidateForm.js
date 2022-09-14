@@ -41,14 +41,22 @@ const ValidateForm = ({ validatePayloadHandler }) => {
         validatePayloadHandler(payload, schema)
     }
 
+    const beautifyJSONHandler = (JSONString) => {
+        const parsedJSON = JSON.parse(JSONString)
+        return JSON.stringify(parsedJSON, null, "\t")
+    }
+
     return (
         <div>
             <form onSubmit={validateResult}>
                 <div className='side-by-side'>
                     <div>
-                        <h2>
-                            Payload
-                        </h2>
+                        <div className='side-by-side-spread'>
+                            <h2 class='remove-whitespace'>
+                                Payload
+                            </h2>
+                            <button type="button" className='editor-button' onClick={() => setPayload(beautifyJSONHandler(payload))}>Indent</button>
+                        </div>
                         <Editor
                             value={payload}
                             tabSize={4}
@@ -57,11 +65,15 @@ const ValidateForm = ({ validatePayloadHandler }) => {
                             padding={10}
                             className="code"
                         />
+                        
                     </div>
                     <div>
-                        <h2>
-                            Schema
-                        </h2>
+                        <div className='side-by-side-spread'>
+                            <h2 class='remove-whitespace'>
+                                Schema
+                            </h2>
+                            <button type="button" className='editor-button' onClick={() => setSchema(beautifyJSONHandler(schema))}>Indent</button>
+                        </div>
                         <Editor
                             value={schema}
                             tabSize={4}
